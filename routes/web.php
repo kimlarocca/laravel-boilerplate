@@ -11,9 +11,13 @@
 |
 */
 
+// style guide
 Route::get('/', function () {
     return view('style-guide');
 });
+
+// test vue component
+// the component can be found here: resources -> js -> components -> ExampleComponent.vue
 Route::get('test', function () {
     return view('test');
 });

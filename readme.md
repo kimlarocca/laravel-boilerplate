@@ -7,6 +7,40 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+##SETUP
+
+**Local Host**
+
+* [Set up Laravel Homestead](https://laravel.com/docs/5.5/homestead)
+* [Download Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+* In Homestead.yaml under 'sites:' map a test url to your-site/public within the vagrant virtualbox
+	* ex: 
+	``sites:`` 
+		``- map: your-site.test 
+		  to: /home/vagrant/code/your-site/public``
+* If needed under 'databases:' in Homestead.yaml add a database with an appropriate name
+* Update the webpack.mix.js file with your test url
+* In terminal: ```sudo nano /etc/hosts``` (on a mac)
+* In terminal, cd into your Homestead folder
+* Run ``vagrant up``
+* Run ``vagrant provision``
+
+**Compilation And Dependencies**
+
+* On first clone of the repo, copy the .env.example file and save it as a .env file
+* In the your-site root folder, run ``npm install``
+* In Vagrant (cd into Homestead, run ``vagrant ssh``, cd into your-site)
+* Run ``composer install``
+* Run ``php artisan key:generate``
+
+###Local Server
+
+* npm run watch
+
+###Build For Production
+
+* npm run prod
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
